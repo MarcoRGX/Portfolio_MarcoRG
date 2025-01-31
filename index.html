@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio Creativo</title>
-
-    <!-- Enlace a Tailwind CSS -->
-    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"></script>
-    <!-- Enlace a Particles.js -->
+    <title>Página Web Creativa</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-
     <style>
-        /* Animaciones para los elementos */
+        /* Estilos adicionales para las animaciones y transiciones */
         .fade-in {
             opacity: 0;
             animation: fadeIn 2s forwards;
@@ -33,80 +29,62 @@
                 transform: scale(1);
             }
         }
-
-        /* Barra de navegación animada */
-        .nav-link {
-            transition: color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: #fbbf24;
-        }
-
-        .progress-bar {
-            width: 0%;
-            transition: width 2s ease-out;
-        }
     </style>
 </head>
+<body class="bg-gray-800 text-white">
 
-<body class="bg-gray-900 text-white">
-
-    <!-- Particles.js -->
+    <!-- Particles.js background -->
     <div id="particles-js" class="absolute top-0 left-0 w-full h-full z-0"></div>
 
     <!-- Barra de navegación -->
-    <nav class="flex justify-between items-center p-6 fixed top-0 w-full bg-gray-900 z-50 shadow-md">
+    <nav class="flex justify-between items-center p-4 bg-gray-900 fixed top-0 w-full z-10">
         <div class="text-xl font-bold">Mi Portafolio</div>
         <ul class="flex space-x-6 text-lg">
-            <li><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
-            <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
-            <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            <li><a href="#sobre-mi" class="hover:text-yellow-500">Sobre mí</a></li>
+            <li><a href="#habilidades" class="hover:text-yellow-500">Habilidades</a></li>
+            <li><a href="#contacto" class="hover:text-yellow-500">Contacto</a></li>
         </ul>
     </nav>
 
-    <!-- Sección Sobre Mí -->
-    <section id="sobre-mi" class="h-screen flex items-center justify-center text-center pt-24 fade-in">
-        <div class="w-4/5 md:w-1/2">
-            <img src="https://via.placeholder.com/150" alt="Mi imagen" class="rounded-full mx-auto mb-6 zoom-in">
-            <h1 class="text-4xl mb-4 font-semibold">¡Hola! Soy [Tu Nombre]</h1>
-            <p class="text-lg">Soy desarrollador web con una gran pasión por la tecnología y la creación de experiencias interactivas. ¡Gracias por visitar mi portafolio!</p>
+    <!-- Contenido principal -->
+    <section id="sobre-mi" class="h-screen flex items-center justify-center bg-gray-900 text-center pt-20">
+        <div class="text-white w-11/12 md:w-1/2 fade-in">
+            <img src="https://via.placeholder.com/150" alt="Mi imagen" class="rounded-full mx-auto mb-4 zoom-in">
+            <h1 class="text-4xl mb-4 font-semibold">¡Hola, soy [Tu Nombre]!</h1>
+            <p class="text-lg">Soy un apasionado de la tecnología, el desarrollo web y el diseño. Me encanta crear experiencias interactivas y útiles. ¡Bienvenido a mi página web!</p>
         </div>
     </section>
 
-    <!-- Sección Habilidades -->
-    <section id="habilidades" class="h-screen bg-gray-800 py-16 text-center">
-        <h2 class="text-3xl text-yellow-500 mb-6 fade-in">Mis Habilidades</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
-            <!-- Habilidad 1 -->
-            <div class="skill mb-4">
-                <h3 class="text-xl mb-2">HTML & CSS</h3>
-                <div class="w-full bg-gray-600 h-2 mb-4">
-                    <div class="bg-yellow-500 h-2 progress-bar" style="width: 90%;"></div>
+    <section id="habilidades" class="h-screen bg-gray-800 py-16">
+        <div class="text-center text-white">
+            <h2 class="text-3xl mb-6">Mis Habilidades</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+                <!-- Gráfico de habilidades -->
+                <div class="skill-bar">
+                    <h3 class="text-xl mb-2">HTML & CSS</h3>
+                    <div class="w-full bg-gray-600 h-2 mb-4">
+                        <div class="bg-yellow-500 h-2" style="width: 90%;"></div>
+                    </div>
                 </div>
-            </div>
-            <!-- Habilidad 2 -->
-            <div class="skill mb-4">
-                <h3 class="text-xl mb-2">JavaScript</h3>
-                <div class="w-full bg-gray-600 h-2 mb-4">
-                    <div class="bg-blue-500 h-2 progress-bar" style="width: 80%;"></div>
+                <div class="skill-bar">
+                    <h3 class="text-xl mb-2">JavaScript</h3>
+                    <div class="w-full bg-gray-600 h-2 mb-4">
+                        <div class="bg-blue-500 h-2" style="width: 80%;"></div>
+                    </div>
                 </div>
-            </div>
-            <!-- Habilidad 3 -->
-            <div class="skill mb-4">
-                <h3 class="text-xl mb-2">React</h3>
-                <div class="w-full bg-gray-600 h-2 mb-4">
-                    <div class="bg-green-500 h-2 progress-bar" style="width: 75%;"></div>
+                <div class="skill-bar">
+                    <h3 class="text-xl mb-2">React</h3>
+                    <div class="w-full bg-gray-600 h-2 mb-4">
+                        <div class="bg-green-500 h-2" style="width: 70%;"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección de Contacto -->
-    <section id="contacto" class="h-screen bg-gray-900 py-16 text-center">
-        <h2 class="text-3xl text-white mb-6">Contacto</h2>
-        <p class="text-lg text-gray-400">¡Estoy siempre abierto a nuevas oportunidades y proyectos! No dudes en ponerte en contacto conmigo.</p>
-        <a href="mailto:miemail@dominio.com" class="mt-6 inline-block px-8 py-3 bg-yellow-500 text-gray-900 rounded-full">Contactar</a>
+    <section id="contacto" class="bg-gray-900 text-center py-16">
+        <h2 class="text-3xl text-white mb-4">Contacto</h2>
+        <p class="text-lg text-gray-400">¡No dudes en contactarme para colaborar juntos en proyectos increíbles!</p>
     </section>
 
     <!-- Script para Particles.js -->
@@ -198,6 +176,5 @@
             "retina_detect": true
         });
     </script>
-
 </body>
 </html>
