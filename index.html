@@ -1,128 +1,203 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio Creativo</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    // Función para cambiar entre modo claro y oscuro
-    function toggleDarkMode() {
-      const html = document.documentElement;
-      html.classList.toggle('dark');
-      localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio Creativo</title>
 
-    // Aplicar el modo guardado al cargar la página
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  </script>
+    <!-- Enlace a Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"></script>
+    <!-- Enlace a Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+    <style>
+        /* Animaciones para los elementos */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .zoom-in {
+            transform: scale(0);
+            animation: zoomIn 1s forwards;
+        }
+
+        @keyframes zoomIn {
+            to {
+                transform: scale(1);
+            }
+        }
+
+        /* Barra de navegación animada */
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #fbbf24;
+        }
+
+        .progress-bar {
+            width: 0%;
+            transition: width 2s ease-out;
+        }
+    </style>
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
-  <!-- Botón de modo claro/oscuro -->
-  <button onclick="toggleDarkMode()" class="fixed bottom-5 right-5 p-3 bg-gray-800 dark:bg-gray-200 text-white dark:text-gray-900 rounded-full shadow-lg hover:scale-110 transition-transform duration-300">
-    🌓
-  </button>
 
-  <!-- Barra de navegación -->
-  <nav class="bg-white dark:bg-gray-800 shadow-md fixed w-full z-10">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex justify-between items-center h-16">
-        <a href="#inicio" class="text-xl font-bold text-gray-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300">Mi Portafolio</a>
-        <div class="hidden md:flex space-x-4">
-          <a href="#sobre-mi" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300">Sobre Mí</a>
-          <a href="#habilidades" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300">Habilidades</a>
-          <a href="#contacto" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300">Contacto</a>
+<body class="bg-gray-900 text-white">
+
+    <!-- Particles.js -->
+    <div id="particles-js" class="absolute top-0 left-0 w-full h-full z-0"></div>
+
+    <!-- Barra de navegación -->
+    <nav class="flex justify-between items-center p-6 fixed top-0 w-full bg-gray-900 z-50 shadow-md">
+        <div class="text-xl font-bold">Mi Portafolio</div>
+        <ul class="flex space-x-6 text-lg">
+            <li><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
+            <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+            <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sección Sobre Mí -->
+    <section id="sobre-mi" class="h-screen flex items-center justify-center text-center pt-24 fade-in">
+        <div class="w-4/5 md:w-1/2">
+            <img src="https://via.placeholder.com/150" alt="Mi imagen" class="rounded-full mx-auto mb-6 zoom-in">
+            <h1 class="text-4xl mb-4 font-semibold">¡Hola! Soy [Tu Nombre]</h1>
+            <p class="text-lg">Soy desarrollador web con una gran pasión por la tecnología y la creación de experiencias interactivas. ¡Gracias por visitar mi portafolio!</p>
         </div>
-        <!-- Menú móvil -->
-        <button class="md:hidden p-2 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400" onclick="toggleMenu()">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-          </svg>
-        </button>
-      </div>
-      <!-- Menú móvil desplegable -->
-      <div id="mobile-menu" class="md:hidden hidden">
-        <a href="#sobre-mi" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Sobre Mí</a>
-        <a href="#habilidades" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Habilidades</a>
-        <a href="#contacto" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Contacto</a>
-      </div>
-    </div>
-  </nav>
+    </section>
 
-  <!-- Sección de inicio -->
-  <section id="inicio" class="h-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-600">
-    <div class="text-center">
-      <h1 class="text-6xl font-bold text-white animate-bounce">Hola, soy [Tu Nombre]</h1>
-      <p class="mt-4 text-xl text-gray-200">Ingeniero de Sistemas | Desarrollador | Diseñador</p>
-    </div>
-  </section>
-
-  <!-- Sección sobre mí -->
-  <section id="sobre-mi" class="py-20 px-4">
-    <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
-      <div class="w-full md:w-1/2">
-        <img src="https://via.placeholder.com/400" alt="Mi Foto" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
-      </div>
-      <div class="w-full md:w-1/2">
-        <h2 class="text-4xl font-bold mb-8">Sobre Mí</h2>
-        <p class="text-lg text-gray-700 dark:text-gray-300">
-          Soy un ingeniero de sistemas con experiencia en desarrollo de software, automatizaciones, diseño gráfico y bases de datos. Me apasiona la tecnología y me mantengo actualizado con las últimas tendencias como la inteligencia artificial y la computación en la nube.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sección de habilidades -->
-  <section id="habilidades" class="py-20 px-4 bg-gray-100 dark:bg-gray-800">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-4xl font-bold text-center mb-8">Habilidades</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Gráficos de habilidades -->
-        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
-          <h3 class="text-xl font-semibold mb-2">Desarrollo Web</h3>
-          <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
-            <div class="bg-indigo-600 h-2.5 rounded-full" style="width: 90%;"></div>
-          </div>
+    <!-- Sección Habilidades -->
+    <section id="habilidades" class="h-screen bg-gray-800 py-16 text-center">
+        <h2 class="text-3xl text-yellow-500 mb-6 fade-in">Mis Habilidades</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+            <!-- Habilidad 1 -->
+            <div class="skill mb-4">
+                <h3 class="text-xl mb-2">HTML & CSS</h3>
+                <div class="w-full bg-gray-600 h-2 mb-4">
+                    <div class="bg-yellow-500 h-2 progress-bar" style="width: 90%;"></div>
+                </div>
+            </div>
+            <!-- Habilidad 2 -->
+            <div class="skill mb-4">
+                <h3 class="text-xl mb-2">JavaScript</h3>
+                <div class="w-full bg-gray-600 h-2 mb-4">
+                    <div class="bg-blue-500 h-2 progress-bar" style="width: 80%;"></div>
+                </div>
+            </div>
+            <!-- Habilidad 3 -->
+            <div class="skill mb-4">
+                <h3 class="text-xl mb-2">React</h3>
+                <div class="w-full bg-gray-600 h-2 mb-4">
+                    <div class="bg-green-500 h-2 progress-bar" style="width: 75%;"></div>
+                </div>
+            </div>
         </div>
-        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
-          <h3 class="text-xl font-semibold mb-2">Diseño Gráfico</h3>
-          <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
-            <div class="bg-indigo-600 h-2.5 rounded-full" style="width: 80%;"></div>
-          </div>
-        </div>
-        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
-          <h3 class="text-xl font-semibold mb-2">Bases de Datos</h3>
-          <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
-            <div class="bg-indigo-600 h-2.5 rounded-full" style="width: 85%;"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Sección de contacto -->
-  <section id="contacto" class="py-20 px-4">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-4xl font-bold text-center mb-8">Contacto</h2>
-      <form class="space-y-4">
-        <input type="text" placeholder="Nombre" class="w-full p-2 rounded-lg border border-gray-300 dark:bg-gray-700 dark:border-gray-600">
-        <input type="email" placeholder="Correo electrónico" class="w-full p-2 rounded-lg border border-gray-300 dark:bg-gray-700 dark:border-gray-600">
-        <textarea placeholder="Mensaje" class="w-full p-2 rounded-lg border border-gray-300 dark:bg-gray-700 dark:border-gray-600"></textarea>
-        <button type="submit" class="w-full bg-indigo-600 text-white p-2 rounded-lg hover:bg-indigo-700 transition-colors duration-300">Enviar</button>
-      </form>
-    </div>
-  </section>
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="h-screen bg-gray-900 py-16 text-center">
+        <h2 class="text-3xl text-white mb-6">Contacto</h2>
+        <p class="text-lg text-gray-400">¡Estoy siempre abierto a nuevas oportunidades y proyectos! No dudes en ponerte en contacto conmigo.</p>
+        <a href="mailto:miemail@dominio.com" class="mt-6 inline-block px-8 py-3 bg-yellow-500 text-gray-900 rounded-full">Contactar</a>
+    </section>
 
-  <!-- Script para el menú móvil -->
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('hidden');
-    }
-  </script>
+    <!-- Script para Particles.js -->
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 1,
+                        "opacity_min": 0.1
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 40,
+                        "size_min": 0.1
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    }
+                },
+                "modes": {
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles": {
+                            "number": 4,
+                            "radius": 9
+                        }
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+
 </body>
 </html>
