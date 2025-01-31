@@ -1,0 +1,55 @@
+h1 {
+    font-size: 3em;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #00ff00; /* Cursor de escritura */
+    animation: blink-caret 0.75s step-end infinite;
+}
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #00ff00; }
+}
+
+.download-btn {
+    position: relative;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #0073e6;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.download-btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+    z-index: 0;
+}
+
+.download-btn:hover {
+    background-color: #005bb5;
+}
+
+.download-btn:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.download-btn:active {
+    transform: scale(0.95);
+}
+
+.download-btn span {
+    position: relative;
+    z-index: 1;
+}
